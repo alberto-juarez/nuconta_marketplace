@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+//Displays the available balance of the customer
 class MoneyView extends StatefulWidget {
   final balance;
   MoneyView(this.balance);
