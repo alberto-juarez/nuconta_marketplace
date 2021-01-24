@@ -1,7 +1,7 @@
 # NuConta Marketplace
 
-![GitHub Logo](/assets/screenshot1.png)
-![GitHub Logo](/assets/screenshot2.png)
+<img src="/assets/screenshot1.png" height="250" />
+<img src="/assets/screenshot2.png" height="250" />
 
 ## Get the demo working
 - Open VS Code
