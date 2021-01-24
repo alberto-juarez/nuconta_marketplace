@@ -1,7 +1,8 @@
 # NuConta Marketplace
 
-<img src="/assets/screenshot1.png" height="250" />
-<img src="/assets/screenshot2.png" height="250" />
+
+| <img src="/assets/screenshot1.png" height="400" /> | <img src="/assets/screenshot1.png" height="400" /> |
+
 
 ## Get the demo working
 - Open VS Code
