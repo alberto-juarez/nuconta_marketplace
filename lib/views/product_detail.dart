@@ -63,6 +63,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   actions: <Widget>[
                     SimpleDialogOption(
                       child: const Text('Close'),
+                      key: Key('closeButton'),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -83,6 +84,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
+                  key: Key('backButton'),
                   icon: Icon(Icons.arrow_back_ios),
                   color: Colors.white,
                 ),
@@ -121,7 +123,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 image: DecorationImage(
                                     image: NetworkImage(
                                         widget.offer.product.image),
-                                    fit: BoxFit.cover)),
+                                    fit: BoxFit.scaleDown)),
                             height: 200.0,
                             width: 200.0))),
                 Positioned(
@@ -136,7 +138,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 fontFamily: 'Montserrat',
                                 fontSize: 22.0,
                                 fontWeight: FontWeight.bold)),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 15.0),
                         Text('Product ID: ' + widget.offer.product.id,
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
@@ -147,10 +149,11 @@ class _ProductDetailState extends State<ProductDetail> {
                                 fontFamily: 'Montserrat',
                                 fontSize: 12.0,
                                 color: Colors.grey)),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 10.0),
                         Text(
                             NumberFormat.simpleCurrency()
                                 .format(widget.offer.price),
+                            key: Key('offerPrice'),
                             style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 20.0,
@@ -161,7 +164,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 fontFamily: 'Montserrat',
                                 fontSize: 16.0,
                                 color: Colors.black)),
-                        SizedBox(height: 50.0),
+                        SizedBox(height: 15.0),
                         //Displays the balance
                         MoneyView(widget.balance),
                         SizedBox(height: 5.0),
@@ -170,6 +173,7 @@ class _ProductDetailState extends State<ProductDetail> {
                           width: double.infinity,
                           height: 50.0,
                           child: RaisedButton(
+                            key: Key('buyButton'),
                             onPressed: purchaseSucceded
                                 ? null
                                 : () => runMutation({'id': widget.offer.id}),

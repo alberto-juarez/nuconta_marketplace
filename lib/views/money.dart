@@ -21,6 +21,7 @@ class _MoneyViewState extends State<MoneyView> {
       child: Center(
         child: Text(
             'Balance: ' + NumberFormat.simpleCurrency().format(widget.balance),
+            key: Key('balanceText'),
             style: TextStyle(
                 color: Colors.white, fontFamily: 'Montserrat', fontSize: 20.0)),
       ),

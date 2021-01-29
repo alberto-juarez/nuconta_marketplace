@@ -1,4 +1,12 @@
-{
+import 'dart:convert';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:nuconta_marketplace/models/customer.dart';
+import 'package:nuconta_marketplace/models/offer.dart';
+import 'package:nuconta_marketplace/models/product.dart';
+
+void main() {
+  String data = """
+  {
   "data": {
     "viewer": {
       "id": "cccc3f48-dd2c-43ba-b8de-8945e7ababab",
@@ -48,4 +56,38 @@
       ]
     }
   }
+}
+  """;
+
+  Map<String, dynamic> json = jsonDecode(data);
+  group("Customer model", () {
+    test('Customer with its children objects created correctly.', () async {
+      final customer =
+          Customer(balance: 1000, name: "Jhon Smith", id: "123455", offers: [
+        Offer(
+            id: "offer1",
+            price: 500,
+            product: Product(
+                description: "Some item",
+                name: "product1",
+                id: "p1",
+                image: "url/image.png"))
+      ]);
+
+      //Assertions
+      expect(customer.offers[0].id, "offer1");
+      expect(customer.balance, 1000);
+      expect(customer.offers[0].product.name, "product1");
+    });
+
+    test('Customer object from JSON created correctly.', () async {
+      final customer = Customer.fromJson(json['data']['viewer']);
+
+      //Assertions
+      expect(customer.offers[0].id, "offer/portal-gun");
+      expect(customer.balance, 1000000);
+      expect(customer.offers[0].product.name, "Portal Gun");
+      expect(customer.offers[1].price, 5507);
+    });
+  });
 }

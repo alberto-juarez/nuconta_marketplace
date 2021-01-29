@@ -6,6 +6,7 @@ class AppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
+        key: Key('appHeader'),
         top: 0,
         child: Container(
             height: 200.0,

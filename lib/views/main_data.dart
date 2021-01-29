@@ -49,12 +49,15 @@ class _MainDataState extends State<MainData> {
         ),
         //List of the products and offers with a link to their details
         Container(
+            key: Key('productList'),
             height: MediaQuery.of(context).size.height - 350.0,
             child: ListView.builder(
               itemCount: widget.customer.offers.length,
               itemBuilder: (context, index) {
                 return ProductCard(
-                    widget.customer.offers[index], widget.customer.balance);
+                    widget.customer.offers[index],
+                    widget.customer.balance,
+                    'detailsButton' + index.toString());
               },
             )),
         //Balance view

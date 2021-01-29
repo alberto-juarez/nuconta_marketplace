@@ -1,5 +1,4 @@
 # Miscellaneous
-lib/services/api.dart
 *.class
 *.log
 *.pyc

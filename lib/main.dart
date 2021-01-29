@@ -8,7 +8,7 @@ import 'services/api.dart';
 //Views
 import 'views/main_view.dart';
 
-void main() {
+main() {
   runApp(MyApp());
 }
 
